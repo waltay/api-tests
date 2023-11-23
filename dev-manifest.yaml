@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: walter-api
+  name: sean-api
 spec:
   replicas: 1
   selector:
@@ -14,13 +14,14 @@ spec:
     spec:
       containers:
         - name: walter-api
+        # This image is going to be the path to the image you create in a future step
           image: us-docker.pkg.dev/scrum-team6/walter-api/api-tests
           ports:
             - containerPort: 3000
-          resources: 
+          resources:
             limits:
               cpu: ".5"
-              memory: "500mi"
+              memory: "500Mi"
             requests:
               cpu: ".25"
               memory: "250Mi"
@@ -40,4 +41,3 @@ spec:
             failureThreshold: 30
             periodSeconds: 10
             timeoutSeconds: 10
-            
